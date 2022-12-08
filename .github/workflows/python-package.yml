@@ -34,9 +34,6 @@ jobs:
         pip install --upgrade pip
         pip install --upgrade wheel
         pip install -r requirements.txt
-    - name: Install SeleniumBase
-      run: |
-        python setup.py install
     - name: Lint with flake8
       run: |
         pip install flake8
@@ -64,3 +61,6 @@ jobs:
     - name: Run pytest examples/wordle_test.py --uc -v -s --reruns=14 --headless2
       run: |
         pytest examples/wordle_test.py --uc -v -s --reruns=14 --headless2
+    - name: Run pytest examples/wordle_test.py --uc -v -s --reruns=14 --headless2
+      run: |
+        pytest examples/wordle_test.py --uc -v -s --reruns=14 --headless2 --edge
