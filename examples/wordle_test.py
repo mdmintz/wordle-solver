@@ -95,6 +95,6 @@ class WordleTests(BaseCase):
         if success:
             print('\nWord: "%s"\nAttempts: %s' % (word.upper(), num_attempts))
         else:
-            print('Final guess: "%s" (Not the correct word!)' % word.upper())
-            self.fail("Unable to solve for the correct word in 6 attempts!")
+            print('\nFinal guess: "%s" (Not the correct word!)' % word.upper())
+            print("\nUnable to solve for the correct word in 6 attempts!")
         self.sleep(3)
