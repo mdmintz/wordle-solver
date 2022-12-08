@@ -54,6 +54,6 @@ jobs:
       run: |
         echo "def test_1(): pass" > nothing.py
         pytest nothing.py
-    - name: Run pytest examples/wordle_test.py (Chrome)
+    - name: Run pytest examples/wordle_test.py
       run: |
-        pytest examples/wordle_test.py --uc -v -s --reruns=14 --headless2
+        pytest examples/wordle_test.py --uc -v -s --headless2
