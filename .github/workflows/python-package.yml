@@ -39,28 +39,21 @@ jobs:
         pip install flake8
         # Stop the build if there are flake8 issues
         flake8 . --count --show-source --statistics --exclude=temp
-    - name: Install Chrome and Edge
+    - name: Install Chrome
       if: matrix.os == 'ubuntu-20.04'
       run: |
         sudo apt install google-chrome-stable
-        sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main"
-        sudo apt update
-        sudo apt install microsoft-edge-stable
     - name: Check the console scripts interface
       run: |
         seleniumbase
         sbase
-    - name: Install chromedriver and edgedriver
+    - name: Install chromedriver
       run: |
         seleniumbase install chromedriver
-        seleniumbase install edgedriver
     - name: Make sure pytest is working
       run: |
         echo "def test_1(): pass" > nothing.py
         pytest nothing.py
-    - name: Run pytest examples/wordle_test.py --uc -v -s --reruns=14 --headless2
+    - name: Run pytest examples/wordle_test.py (Chrome)
       run: |
         pytest examples/wordle_test.py --uc -v -s --reruns=14 --headless2
-    - name: Run pytest examples/wordle_test.py --uc -v -s --reruns=14 --headless2
-      run: |
-        pytest examples/wordle_test.py --uc -v -s --reruns=14 --headless2 --edge
