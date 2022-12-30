@@ -98,3 +98,8 @@ class WordleTests(BaseCase):
             print('\nFinal guess: "%s" (Not the correct word!)' % word.upper())
             print("\nUnable to solve for the correct word in 6 attempts!")
         self.sleep(3)
+
+
+if __name__ == "__main__":
+    from pytest import main
+    main([__file__, "-s"])
