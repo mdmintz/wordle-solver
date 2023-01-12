@@ -76,10 +76,10 @@ class WordleTests(BaseCase):
             button = 'button[class*="oneAndAHalf"]'
             self.click(button)
             row = (
-                'div[class*="lbzlf"] div[class*="Row-module"]:nth-of-type(%s) '
+                'div[class*="Board"] div[class*="Row-module"]:nth-of-type(%s) '
                 % num_attempts
             )
-            tile = row + 'div:nth-child(%s) div[class*="module_tile__3ayIZ"]'
+            tile = row + 'div:nth-child(%s) div[class*="module_tile__"]'
             self.wait_for_element(tile % "5" + '[data-state*="e"]')
             letter_status = []
             for i in range(1, 6):
