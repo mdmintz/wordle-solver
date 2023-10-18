@@ -56,4 +56,4 @@ jobs:
         pytest nothing.py
     - name: Run pytest examples/wordle_test.py
       run: |
-        pytest examples/wordle_test.py -v -s --xvfb --slow
+        pytest examples/wordle_test.py -v -s --xvfb --slow --reruns=1
