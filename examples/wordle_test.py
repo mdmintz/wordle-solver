@@ -58,11 +58,12 @@ class WordleTests(BaseCase):
 
     def test_wordle(self):
         self.skip_if_incorrect_env()
-        self.open("https://www.nytimes.com/games/wordle/index.html")
+        self.goto("https://www.nytimes.com/games/wordle/index.html")
         self.click_if_visible("button.purr-blocker-card__button", timeout=2)
         self.click_if_visible('button:contains("Play")', timeout=2)
+        self.click_if_visible('button[class*="Skip-module"]', timeout=4)
         self.click_if_visible('svg[data-testid="icon-close"]', timeout=2)
-        self.remove_elements("div.place-ad")
+        self.remove_elements('div[class*="Ad-module]')
         self.initialize_word_list()
         word = random.choice(self.word_list)
         num_attempts = 0
