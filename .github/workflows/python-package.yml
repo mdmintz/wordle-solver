@@ -58,7 +58,7 @@ jobs:
       run: |
         pytest examples/wordle_test.py -v -s --xvfb --ad-block --slow --debug --reruns=1
     - name: Upload screenshots
-      if: !cancelled()
+      if: '!cancelled()'
       uses: actions/upload-artifact@v6
       with:
         name: seleniumbase-screenshots
