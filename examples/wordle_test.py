@@ -59,7 +59,8 @@ class WordleTests(BaseCase):
     def test_wordle(self):
         self.skip_if_incorrect_env()
         self.goto("https://www.nytimes.com/games/wordle/index.html")
-        self.sleep(0.5)
+        self.sleep(2)
+        self.solve_captcha()
         self.click_if_visible("button.purr-blocker-card__button", timeout=1)
         self.sleep(0.2)
         self.click_if_visible('button:contains("Play")', timeout=2)
@@ -117,4 +118,4 @@ class WordleTests(BaseCase):
 
 if __name__ == "__main__":
     from pytest import main
-    main([__file__, "-s", "--ad-block"])
+    main([__file__, "-s", "--ad-block", "--uc"])
