@@ -60,22 +60,20 @@ class WordleTests(BaseCase):
         self.skip_if_incorrect_env()
         self.goto("https://www.nytimes.com/games/wordle/index.html")
         self.sleep(1)
-        self.solve_captcha()
-        self.click_if_visible("button.purr-blocker-card__button", timeout=1)
-        self.sleep(0.2)
-        self.click_if_visible('button:contains("Play")', timeout=2)
-        self.sleep(0.2)
-        self.click_if_visible('button[class*="Skip-module"]', timeout=4)
-        self.sleep(0.2)
+        self.click_if_visible("button.purr-blocker-card__button", timeout=2)
+        self.sleep(0.5)
+        self.click_if_visible('button:contains("Play")', timeout=3)
+        self.sleep(0.5)
+        self.click_if_visible('button[class*="Skip-module"]', timeout=2)
+        self.sleep(0.5)
         self.click_if_visible('svg[data-testid="icon-close"]', timeout=2)
-        self.sleep(0.2)
+        self.sleep(0.5)
+        self.click_if_visible('button[class*="Skip-module"]', timeout=2)
         self.remove_elements('div[class*="Ad-module]')
         self.initialize_word_list()
         word = random.choice(self.word_list)
         num_attempts = 0
         success = False
-        self.solve_captcha()
-        self.sleep(1)
         self.wait_for_element('button[data-key]')
         self.sleep(0.7)
         for attempt in range(6):
@@ -120,4 +118,4 @@ class WordleTests(BaseCase):
 
 if __name__ == "__main__":
     from pytest import main
-    main([__file__, "-s", "--ad-block", "--uc"])
+    main([__file__, "-s", "--ad-block"])
