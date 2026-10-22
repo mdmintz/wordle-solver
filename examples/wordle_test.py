@@ -59,7 +59,7 @@ class WordleTests(BaseCase):
     def test_wordle(self):
         self.skip_if_incorrect_env()
         self.goto("https://www.nytimes.com/games/wordle/index.html")
-        self.sleep(2)
+        self.sleep(1)
         self.solve_captcha()
         self.click_if_visible("button.purr-blocker-card__button", timeout=1)
         self.sleep(0.2)
@@ -74,6 +74,8 @@ class WordleTests(BaseCase):
         word = random.choice(self.word_list)
         num_attempts = 0
         success = False
+        self.solve_captcha()
+        self.sleep(1)
         self.wait_for_element('button[data-key]')
         self.sleep(0.7)
         for attempt in range(6):
