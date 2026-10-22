@@ -58,6 +58,7 @@ jobs:
       run: |
         pytest examples/wordle_test.py -v -s --uc --xvfb --slow --debug --reruns=1
     - name: Upload screenshots
+      if: always()
       uses: actions/upload-artifact@v6
       with:
         name: seleniumbase-screenshots
